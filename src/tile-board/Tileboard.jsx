@@ -1,9 +1,11 @@
 import React from 'react';
+import Tile from './Tile';
 
 function TileBoard() {
   return (
-    <div>
+    <div className='d-flex justify-content-center'>
         Tile Board
+        <Tile />
     </div>
   )
 }
