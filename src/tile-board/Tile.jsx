@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import "./Tile.css";
 
 function Tile({ isOn, id, handleToggle }) {
   return (
@@ -7,14 +8,12 @@ function Tile({ isOn, id, handleToggle }) {
       type="button"
       className={
         isOn
-          ? "btn btn-light btn-outline-dark"
-          : "btn btn-dark btn-outline-light"
+          ? "btn btn-light btn-outline-dark tile tile-on"
+          : "btn btn-dark btn-outline-light tile tile-off"
       }
       id={id}
       onClick={handleToggle}
-    >
-      Tile
-    </button>
+    ></button>
   );
 }
 
