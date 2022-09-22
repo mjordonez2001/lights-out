@@ -1,11 +1,11 @@
-import React from 'react';
-import Tile from './Tile';
+import React from "react";
+import Tile from "./Tile";
 
 function TileBoard() {
   const arrayGrid = createArrayGrid();
-  
+
   return (
-    <div className='container text-center mt-5'>
+    <div className="container text-center mt-5">
       {
         // Maps over the array grid, adding a <div> element that wraps around each row.
         arrayGrid.map((row, key) => {
@@ -13,7 +13,7 @@ function TileBoard() {
         })
       }
     </div>
-  )
+  );
 }
 
 /* 
@@ -26,10 +26,10 @@ function TileBoard() {
 */
 function createArrayGrid() {
   const allTiles = [];
-  for (let i=0; i<5; i++) {
+  for (let i = 0; i < 5; i++) {
     const row = [];
 
-    for (let j=0; j<5; j++) {
+    for (let j = 0; j < 5; j++) {
       row.push(<Tile key={`${i}, ${j}`} />);
     }
     allTiles.push(row);
