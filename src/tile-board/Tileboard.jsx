@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Tile from "./Tile";
 
 function TileBoard() {
-  const arrayGrid = createArrayGrid();
+  const [arrayGrid] = useState(() => createArrayGrid());
 
   return (
     <div className="container text-center mt-5">
