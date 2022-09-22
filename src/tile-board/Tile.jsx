@@ -1,24 +1,27 @@
 import React from "react";
 import propTypes from "prop-types";
 
-function Tile({ isOn }) {
+function Tile({ isOn, id, handleToggle }) {
   return (
-    <>
-      {isOn ? (
-        <button type="button" className="btn btn-light btn-outline-dark">
-          Tile
-        </button>
-      ) : (
-        <button type="button" className="btn btn-dark btn-outline-light">
-          Tile
-        </button>
-      )}
-    </>
+    <button
+      type="button"
+      className={
+        isOn
+          ? "btn btn-light btn-outline-dark"
+          : "btn btn-dark btn-outline-light"
+      }
+      id={id}
+      onClick={handleToggle}
+    >
+      Tile
+    </button>
   );
 }
 
 Tile.propTypes = {
   isOn: propTypes.bool.isRequired,
+  id: propTypes.string.isRequired,
+  handleToggle: propTypes.func.isRequired,
 };
 
 export default Tile;
