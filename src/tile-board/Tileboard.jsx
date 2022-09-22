@@ -6,8 +6,14 @@ function TileBoard() {
 
   return (
     <div className="container text-center mt-5">
-      {arrayGrid.map((row, key) => {
-        return <div key={key}>{row}</div>;
+      {arrayGrid.map((row, keyi) => {
+        return (
+          <div key={`${keyi}`}>
+            {row.map((tile, keyj) => {
+              return <Tile key={`${keyi}, ${keyj}`} />;
+            })}
+          </div>
+        );
       })}
     </div>
   );
@@ -22,7 +28,7 @@ function createArrayGrid() {
     const row = [];
 
     for (let j = 0; j < 5; j++) {
-      row.push(<Tile key={`${i}, ${j}`} />);
+      row.push(true);
     }
     allTiles.push(row);
   }
