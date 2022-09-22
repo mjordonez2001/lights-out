@@ -1,12 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import TileBoard from "./tile-board/Tileboard";
 
 function App() {
   return (
-    <div className="App">
-      Lights Out
+    <div>
+      <TileBoard />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
