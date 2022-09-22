@@ -10,7 +10,7 @@ function TileBoard() {
         return (
           <div key={`${keyi}`}>
             {row.map((tile, keyj) => {
-              return <Tile key={`${keyi}, ${keyj}`} />;
+              return <Tile key={`${keyi}, ${keyj}`} isOn={tile} />;
             })}
           </div>
         );
