@@ -14,6 +14,7 @@ function Tile({ isOn, id, handleToggle }) {
       )}
       id={id}
       onClick={handleToggle}
+      aria-label={`Tile ${id}`}
     ></button>
   );
 }
