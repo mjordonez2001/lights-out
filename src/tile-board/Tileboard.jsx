@@ -52,7 +52,10 @@ function createArrayGrid(size) {
  * Toggles adjacent tiles
  */
 function toggle(arrayGrid, y, x, size) {
-  const tempArray = [...arrayGrid];
+  const tempArray = arrayGrid.map((row) => {
+    return [...row];
+  });
+
   tempArray[y][x] = !tempArray[y][x];
 
   // top tile
