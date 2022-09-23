@@ -1,16 +1,17 @@
 import React from "react";
 import propTypes from "prop-types";
+import clsx from "clsx";
 import "./Tile.css";
 
 function Tile({ isOn, id, handleToggle }) {
   return (
     <button
       type="button"
-      className={
-        isOn
-          ? "btn btn-light btn-outline-dark tile tile-on"
-          : "btn btn-dark btn-outline-light tile tile-off"
-      }
+      className={clsx(
+        "btn tile",
+        isOn && "btn-light btn-outline-dark tile-on",
+        !isOn && "btn-dark btn-outline-light tile-off"
+      )}
       id={id}
       onClick={handleToggle}
     ></button>
