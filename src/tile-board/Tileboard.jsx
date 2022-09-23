@@ -71,7 +71,7 @@ function toggle(arrayGrid, id, size) {
     tempArray[i][j + 1] = !tempArray[i][j + 1];
   }
   // left tile
-  if (j < size - 1) {
+  if (j > 0) {
     tempArray[i][j - 1] = !tempArray[i][j - 1];
   }
 
