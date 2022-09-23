@@ -5,22 +5,22 @@ function TileBoard() {
   const [size] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => createArrayGrid(size));
 
-  const handleToggle = ({ target }) => {
-    setArrayGrid(toggle(arrayGrid, target.id, size));
+  const handleToggle = (y, x) => {
+    setArrayGrid(toggle(arrayGrid, y, x, size));
   };
 
   return (
     <div className="container text-center mt-5">
-      {arrayGrid.map((row, keyi) => {
+      {arrayGrid.map((row, y) => {
         return (
-          <div key={`${keyi}`}>
-            {row.map((tile, keyj) => {
+          <div key={`${y}`}>
+            {row.map((tile, x) => {
               return (
                 <Tile
-                  key={`${keyi}${keyj}`}
-                  id={`${keyi}${keyj}`}
+                  key={`${y}, ${x}`}
+                  id={`${y}, ${x}`}
                   isOn={tile}
-                  handleToggle={handleToggle}
+                  handleToggle={() => handleToggle(y, x)}
                 />
               );
             })}
@@ -36,10 +36,10 @@ function TileBoard() {
  */
 function createArrayGrid(size) {
   const allTiles = [];
-  for (let i = 0; i < size; i++) {
+  for (let y = 0; y < size; y++) {
     const row = [];
 
-    for (let j = 0; j < size; j++) {
+    for (let x = 0; x < size; x++) {
       row.push(true);
     }
     allTiles.push(row);
@@ -51,28 +51,25 @@ function createArrayGrid(size) {
 /**
  * Toggles adjacent tiles
  */
-function toggle(arrayGrid, id, size) {
+function toggle(arrayGrid, y, x, size) {
   const tempArray = [...arrayGrid];
-  const i = Number(id[0]);
-  const j = Number(id[1]);
-
-  tempArray[i][j] = !tempArray[i][j];
+  tempArray[y][x] = !tempArray[y][x];
 
   // top tile
-  if (i > 0) {
-    tempArray[i - 1][j] = !tempArray[i - 1][j];
+  if (y > 0) {
+    tempArray[y - 1][x] = !tempArray[y - 1][x];
   }
   // bottom tile
-  if (i < size - 1) {
-    tempArray[i + 1][j] = !tempArray[i + 1][j];
+  if (y < size - 1) {
+    tempArray[y + 1][x] = !tempArray[y + 1][x];
   }
   // right tile
-  if (j < size - 1) {
-    tempArray[i][j + 1] = !tempArray[i][j + 1];
+  if (x < size - 1) {
+    tempArray[y][x + 1] = !tempArray[y][x + 1];
   }
   // left tile
-  if (j > 0) {
-    tempArray[i][j - 1] = !tempArray[i][j - 1];
+  if (x > 0) {
+    tempArray[y][x - 1] = !tempArray[y][x - 1];
   }
 
   return tempArray;
