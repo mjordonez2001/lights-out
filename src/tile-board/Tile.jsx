@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import clsx from "clsx";
 import "./Tile.css";
 
-function Tile({ isOn, id, handleToggle }) {
+function Tile({ isOn, id, onToggle }) {
   return (
     <button
       type="button"
@@ -13,16 +13,16 @@ function Tile({ isOn, id, handleToggle }) {
         !isOn && "btn-dark btn-outline-light tile-off"
       )}
       id={id}
-      onClick={handleToggle}
+      onClick={onToggle}
       aria-label={`Tile ${id}`}
-    ></button>
+    />
   );
 }
 
 Tile.propTypes = {
   isOn: propTypes.bool.isRequired,
   id: propTypes.string.isRequired,
-  handleToggle: propTypes.func.isRequired,
+  onToggle: propTypes.func.isRequired,
 };
 
 export default Tile;

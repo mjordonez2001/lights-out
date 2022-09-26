@@ -5,7 +5,7 @@ function TileBoard() {
   const [size] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => createArrayGrid(size));
 
-  const handleToggle = (y, x) => {
+  const onToggle = (y, x) => {
     setArrayGrid(toggle(arrayGrid, y, x, size));
   };
 
@@ -20,7 +20,7 @@ function TileBoard() {
                   key={`${y}, ${x}`}
                   id={`${y}, ${x}`}
                   isOn={tile}
-                  handleToggle={() => handleToggle(y, x)}
+                  onToggle={() => onToggle(y, x)}
                 />
               );
             })}
