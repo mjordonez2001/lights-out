@@ -45,7 +45,7 @@ function createArrayGrid(size) {
     allTiles.push(row);
   }
 
-  return allTiles;
+  return randomBoard(allTiles, size);
 }
 
 /**
@@ -76,6 +76,31 @@ function toggle(arrayGrid, y, x, size) {
   }
 
   return tempArray;
+}
+
+/**
+ * Generates a random board
+ */
+function randomBoard(arrayGrid, size) {
+  let tempArray = arrayGrid.map((row) => {
+    return [...row];
+  });
+
+  for (let i = 0; i < size * size; i++) {
+    const x = randomTilePosition(size);
+    const y = randomTilePosition(size);
+
+    tempArray = toggle(tempArray, y, x, size);
+  }
+
+  return tempArray;
+}
+
+/**
+ * Returns a random tile position
+ */
+function randomTilePosition(size) {
+  return Math.floor(Math.random() * size);
 }
 
 export default TileBoard;
