@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
     setMoves(0);
+    setWinAlert(false);
   }, [size]);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
   const onRestart = () => {
     setArrayGrid(randomArrayGrid(size));
     setMoves(0);
+    setWinAlert(false);
   };
 
   const onSizeChange = ({ target }) => {
