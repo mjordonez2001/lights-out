@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TileBoard from "./tile-board/Tileboard";
-import { randomArrayGrid, checkWin } from "./utils/utils";
+import { randomArrayGrid, checkWin, toggle } from "./utils/utils";
 import "./App.css";
 
 function App() {
@@ -31,7 +31,8 @@ function App() {
     setSize(Number(target.value));
   };
 
-  const increaseMoveCount = () => {
+  const onToggle = (y, x) => {
+    setArrayGrid(toggle(arrayGrid, y, x, size));
     setMoves((currentMoves) => currentMoves + 1);
   };
 
@@ -61,12 +62,7 @@ function App() {
       )}
 
       <div>Moves: {moves}</div>
-      <TileBoard
-        arrayGrid={arrayGrid}
-        setArrayGrid={setArrayGrid}
-        size={size}
-        increaseMoveCount={increaseMoveCount}
-      />
+      <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />
       <button className="btn btn-primary mt-3" onClick={onRestart}>
         New game
       </button>
