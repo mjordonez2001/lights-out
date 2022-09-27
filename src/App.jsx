@@ -7,7 +7,7 @@ function App() {
   const [size, setSize] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => randomArrayGrid(size));
   const [moves, setMoves] = useState(0);
-  const [winAlert, setWinAlert] = useState(<></>);
+  const [winAlert, setWinAlert] = useState(false);
 
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
@@ -16,11 +16,7 @@ function App() {
 
   useEffect(() => {
     if (checkWin(arrayGrid)) {
-      setWinAlert(
-        <div className="alert alert-success" role="alert">
-          You won!
-        </div>
-      );
+      setWinAlert(true);
     }
   }, [arrayGrid]);
 
@@ -53,7 +49,15 @@ function App() {
           <option value="9">9x9</option>
         </select>
       </div>
-      {winAlert}
+
+      {winAlert ? (
+        <div className="alert alert-success" role="alert">
+          You won!
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div>Moves: {moves}</div>
       <TileBoard
         arrayGrid={arrayGrid}
