@@ -9,7 +9,7 @@ function TileBoard({ arrayGrid, setArrayGrid, size }) {
   };
 
   return (
-    <div className="container text-center mt-5">
+    <div className="container text-center mt-3">
       {arrayGrid.map((row, y) => {
         return (
           <div key={`${y}`}>
