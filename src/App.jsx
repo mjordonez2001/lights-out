@@ -18,7 +18,7 @@ function App() {
         size={size}
       />
       <button className="btn btn-primary mt-3" onClick={onRestart}>
-        Restart board
+        New game
       </button>
     </div>
   );
