@@ -26,6 +26,7 @@ function App() {
 
   const onRestart = () => {
     setArrayGrid(randomArrayGrid(size));
+    setMoves(0);
   };
 
   const onSizeChange = ({ target }) => {
