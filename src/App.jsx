@@ -6,10 +6,12 @@ import "./App.css";
 function App() {
   const [size, setSize] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => randomArrayGrid(size));
+  const [moves, setMoves] = useState(0);
   const [winAlert, setWinAlert] = useState(<></>);
 
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
+    setMoves(0);
   }, [size]);
 
   useEffect(() => {
@@ -30,6 +32,10 @@ function App() {
     setSize(Number(target.value));
   };
 
+  const increaseMoveCount = () => {
+    setMoves((currentMoves) => currentMoves + 1);
+  };
+
   return (
     <div className="container text-center mt-3">
       <h1>Lights Out</h1>
@@ -47,10 +53,12 @@ function App() {
         </select>
       </div>
       {winAlert}
+      <div>Moves: {moves}</div>
       <TileBoard
         arrayGrid={arrayGrid}
         setArrayGrid={setArrayGrid}
         size={size}
+        increaseMoveCount={increaseMoveCount}
       />
       <button className="btn btn-primary mt-3" onClick={onRestart}>
         New game
