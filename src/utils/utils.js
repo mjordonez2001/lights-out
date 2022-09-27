@@ -1,7 +1,7 @@
 /**
  * Generates an initial square grid of tiles
  */
-export function createArrayGrid(size) {
+export function randomArrayGrid(size) {
   const allTiles = [];
   for (let y = 0; y < size; y++) {
     const row = [];

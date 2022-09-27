@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import TileBoard from "./tile-board/Tileboard";
-import { createArrayGrid } from "./utils/utils";
+import { randomArrayGrid } from "./utils/utils";
 
 function App() {
   const [size] = useState(5);
-  const [arrayGrid, setArrayGrid] = useState(() => createArrayGrid(size));
+  const [arrayGrid, setArrayGrid] = useState(() => randomArrayGrid(size));
 
   const onRestart = () => {
-    setArrayGrid(createArrayGrid(size));
+    setArrayGrid(randomArrayGrid(size));
   };
 
   return (
