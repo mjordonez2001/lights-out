@@ -1,7 +1,7 @@
 /**
  * Generates an initial square grid of tiles
  */
-export function createArrayGrid(size) {
+export function randomArrayGrid(size) {
   const allTiles = [];
   for (let y = 0; y < size; y++) {
     const row = [];
@@ -68,4 +68,19 @@ export function randomBoard(arrayGrid, size) {
  */
 function randomTilePosition(size) {
   return Math.floor(Math.random() * size);
+}
+
+/**
+ * Checks win condition
+ */
+export function checkWin(arrayGrid) {
+  for (let y = 0; y < arrayGrid.length; y++) {
+    for (let x = 0; x < arrayGrid.length; x++) {
+      if (arrayGrid[y][x]) {
+        return false;
+      }
+    }
+  }
+
+  return true;
 }

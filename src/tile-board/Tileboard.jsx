@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Tile from "./Tile";
-import { createArrayGrid, toggle } from "../utils/utils";
+import propTypes from "prop-types";
 
-function TileBoard() {
-  const [size] = useState(5);
-  const [arrayGrid, setArrayGrid] = useState(() => createArrayGrid(size));
-
-  const onToggle = (y, x) => {
-    setArrayGrid(toggle(arrayGrid, y, x, size));
-  };
-
+function TileBoard({ arrayGrid, onToggle }) {
   return (
-    <div className="container text-center mt-5">
+    <div className="container text-center mt-3">
       {arrayGrid.map((row, y) => {
         return (
           <div key={`${y}`}>
@@ -31,5 +24,10 @@ function TileBoard() {
     </div>
   );
 }
+
+TileBoard.propTypes = {
+  arrayGrid: propTypes.array.isRequired,
+  onToggle: propTypes.func.isRequired,
+};
 
 export default TileBoard;
