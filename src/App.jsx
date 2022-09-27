@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from "react";
 import TileBoard from "./tile-board/Tileboard";
-import { randomArrayGrid } from "./utils/utils";
+import { randomArrayGrid, checkWin } from "./utils/utils";
 import "./App.css";
 
 function App() {
   const [size, setSize] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => randomArrayGrid(size));
+  const [winAlert, setWinAlert] = useState(<></>);
 
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
   }, [size]);
+
+  useEffect(() => {
+    if (checkWin(arrayGrid)) {
+      setWinAlert(
+        <div className="alert alert-success" role="alert">
+          You won!
+        </div>
+      );
+    }
+  }, [arrayGrid]);
 
   const onRestart = () => {
     setArrayGrid(randomArrayGrid(size));
@@ -35,7 +46,7 @@ function App() {
           <option value="9">9x9</option>
         </select>
       </div>
-
+      {winAlert}
       <TileBoard
         arrayGrid={arrayGrid}
         setArrayGrid={setArrayGrid}
