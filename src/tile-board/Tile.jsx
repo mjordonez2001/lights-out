@@ -9,8 +9,8 @@ function Tile({ isOn, id, onToggle }) {
       type="button"
       className={clsx(
         "btn tile",
-        isOn && "btn-light btn-outline-dark tile-on",
-        !isOn && "btn-dark btn-outline-light tile-off"
+        isOn && "btn-light tile-on",
+        !isOn && "btn-dark tile-off"
       )}
       id={id}
       onClick={onToggle}
