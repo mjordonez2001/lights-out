@@ -1,3 +1,7 @@
 .form-select {
   width: auto;
 }
+
+.movesCounter {
+  font-weight: bold;
+}
