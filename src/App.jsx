@@ -9,12 +9,15 @@ function App() {
   const [moves, setMoves] = useState(0);
   const [winAlert, setWinAlert] = useState(false);
   const [rgb, setRgb] = useState([0, 185, 70]);
+  const [emoji, setEmoji] = useState(<>😆</>);
 
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
     setMoves(0);
     setWinAlert(false);
+
     setRgb([0, 185, 70]);
+    setEmoji(<>😆</>);
   }, [size]);
 
   useEffect(() => {
@@ -27,7 +30,9 @@ function App() {
     setArrayGrid(randomArrayGrid(size));
     setMoves(0);
     setWinAlert(false);
+
     setRgb([0, 185, 70]);
+    setEmoji(<>😆</>);
   };
 
   const onSizeChange = ({ target }) => {
@@ -44,6 +49,28 @@ function App() {
       tempRgb[1] -= 3;
       tempRgb[2] -= 1;
       setRgb([...tempRgb]);
+    }
+
+    if (moves === 5) {
+      setEmoji(<>😄</>);
+    } else if (moves === 10) {
+      setEmoji(<>😊</>);
+    } else if (moves === 15) {
+      setEmoji(<>😊</>);
+    } else if (moves === 20) {
+      setEmoji(<>🙂</>);
+    } else if (moves === 25) {
+      setEmoji(<>🤨</>);
+    } else if (moves === 30) {
+      setEmoji(<>😕</>);
+    } else if (moves === 35) {
+      setEmoji(<>😣</>);
+    } else if (moves === 40) {
+      setEmoji(<>😖</>);
+    } else if (moves === 45) {
+      setEmoji(<>😩</>);
+    } else if (moves === 50) {
+      setEmoji(<>😫</>);
     }
   };
 
@@ -80,7 +107,9 @@ function App() {
         >
           {moves}
         </span>
+        <span className="mx-1">{emoji}</span>
       </div>
+
       <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />
       <button className="btn btn-primary mt-3" onClick={onRestart}>
         New game
