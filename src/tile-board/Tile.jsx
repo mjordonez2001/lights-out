@@ -3,7 +3,7 @@ import propTypes from "prop-types";
 import clsx from "clsx";
 import "./Tile.css";
 
-function Tile({ isOn, id, onToggle }) {
+function Tile({ isOn, id, onToggle, delay }) {
   return (
     <button
       type="button"
@@ -15,6 +15,7 @@ function Tile({ isOn, id, onToggle }) {
       id={id}
       onClick={onToggle}
       aria-label={`Tile ${id}`}
+      style={{ animationDelay: `${delay}00ms` }}
     />
   );
 }
@@ -23,6 +24,7 @@ Tile.propTypes = {
   isOn: propTypes.bool.isRequired,
   id: propTypes.string.isRequired,
   onToggle: propTypes.func.isRequired,
+  delay: propTypes.number,
 };
 
 export default Tile;

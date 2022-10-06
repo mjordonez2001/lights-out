@@ -111,7 +111,7 @@ function App() {
       </div>
 
       <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />
-      <button className="btn btn-primary mt-3 newGame" onClick={onRestart}>
+      <button className="btn btn-primary mt-5 newGame" onClick={onRestart}>
         New game
       </button>
     </div>
