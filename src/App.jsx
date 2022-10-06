@@ -3,13 +3,14 @@ import TileBoard from "./tile-board/Tileboard";
 import { randomArrayGrid, checkWin, toggle } from "./utils/utils";
 import "./App.css";
 
+const emojis = ["😆", "😄", "😊", "🙂", "🤨", "😕", "😣", "😖", "😩", "😫"];
+
 function App() {
   const [size, setSize] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => randomArrayGrid(size));
   const [moves, setMoves] = useState(0);
   const [winAlert, setWinAlert] = useState(false);
   const [rgb, setRgb] = useState([0, 185, 70]);
-  const [emoji, setEmoji] = useState(<>😆</>);
 
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
@@ -17,7 +18,6 @@ function App() {
     setWinAlert(false);
 
     setRgb([0, 185, 70]);
-    setEmoji(<>😆</>);
   }, [size]);
 
   useEffect(() => {
@@ -32,7 +32,6 @@ function App() {
     setWinAlert(false);
 
     setRgb([0, 185, 70]);
-    setEmoji(<>😆</>);
   };
 
   const onSizeChange = ({ target }) => {
@@ -51,47 +50,32 @@ function App() {
       tempRgb[2] -= 1;
       setRgb([...tempRgb]);
     }
-
-    const index = Math.floor(moves / size);
-    const emojis = [
-      <>😆</>,
-      <>😄</>,
-      <>😊</>,
-      <>🙂</>,
-      <>🤨</>,
-      <>😕</>,
-      <>😣</>,
-      <>😖</>,
-      <>😩</>,
-      <>😫</>,
-    ];
-    if (moves % size === 0 && index < emojis.length) {
-      setEmoji(emojis[index]);
-    }
   };
+
+  const emojiIndex = Math.floor(moves / size);
 
   return (
     <div className="container text-center mt-3">
       <h1>Lights Out</h1>
 
-      {winAlert ? (
+      {!!winAlert && (
         <div className="alert alert-success" role="alert">
           You won!
         </div>
-      ) : (
-        <></>
       )}
 
       <div className="mt-3">
         <span
           className="movesCounter"
           style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
-          key={moves}
+          key={`move-counter: ${moves}`}
         >
           {moves}
         </span>
         &nbsp;moves
-        <span className="mx-2">{emoji}</span>
+        <span className="mx-2 emoji" key={`emoji: ${emojiIndex}`}>
+          {emojiIndex < emojis.length ? emojis[emojiIndex] : "😫"}
+        </span>
       </div>
 
       <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />

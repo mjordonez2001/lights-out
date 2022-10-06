@@ -17,6 +17,11 @@ h1 {
   animation: bounce .1s ease-in-out;
 }
 
+.emoji {
+  display: inline-block;
+  animation: bounce .1s ease-in-out;
+}
+
 @keyframes bounce {
   30% {
     transform: translateY(-4px);
