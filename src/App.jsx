@@ -21,7 +21,7 @@ function App() {
   }, [size]);
 
   useEffect(() => {
-    if (checkWin(arrayGrid)) {
+    if (checkWin(arrayGrid) && arrayGrid.length) {
       setWinAlert(true);
     }
   }, [arrayGrid]);
@@ -37,6 +37,7 @@ function App() {
 
   const onSizeChange = ({ target }) => {
     setSize(Number(target.value));
+    setArrayGrid([]);
   };
 
   const onToggle = (y, x) => {
@@ -77,19 +78,6 @@ function App() {
   return (
     <div className="container text-center mt-3">
       <h1>Lights Out</h1>
-      <div className="d-flex justify-content-center my-3">
-        <select
-          className="form-select"
-          aria-label="Size"
-          onChange={onSizeChange}
-        >
-          <option value="5">5x5</option>
-          <option value="6">6x6</option>
-          <option value="7">7x7</option>
-          <option value="8">8x8</option>
-          <option value="9">9x9</option>
-        </select>
-      </div>
 
       {winAlert ? (
         <div className="alert alert-success" role="alert">
@@ -99,21 +87,37 @@ function App() {
         <></>
       )}
 
-      <div>
-        Moves:&nbsp;
+      <div className="mt-3">
         <span
           className="movesCounter"
           style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
         >
           {moves}
         </span>
+        &nbsp;moves
         <span className="mx-1">{emoji}</span>
       </div>
 
       <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />
-      <button className="btn btn-primary mt-5 newGame" onClick={onRestart}>
-        New game
-      </button>
+
+      <div className="d-flex justify-content-center mt-5 mb-3">
+        <button className="btn btn-primary newGame mx-2" onClick={onRestart}>
+          New game
+        </button>
+        <div>
+          <select
+            className="form-select"
+            aria-label="Size"
+            onChange={onSizeChange}
+          >
+            <option value="5">5x5</option>
+            <option value="6">6x6</option>
+            <option value="7">7x7</option>
+            <option value="8">8x8</option>
+            <option value="9">9x9</option>
+          </select>
+        </div>
+      </div>
     </div>
   );
 }
