@@ -52,26 +52,21 @@ function App() {
       setRgb([...tempRgb]);
     }
 
-    if (moves === 5) {
-      setEmoji(<>😄</>);
-    } else if (moves === 10) {
-      setEmoji(<>😊</>);
-    } else if (moves === 15) {
-      setEmoji(<>😊</>);
-    } else if (moves === 20) {
-      setEmoji(<>🙂</>);
-    } else if (moves === 25) {
-      setEmoji(<>🤨</>);
-    } else if (moves === 30) {
-      setEmoji(<>😕</>);
-    } else if (moves === 35) {
-      setEmoji(<>😣</>);
-    } else if (moves === 40) {
-      setEmoji(<>😖</>);
-    } else if (moves === 45) {
-      setEmoji(<>😩</>);
-    } else if (moves === 50) {
-      setEmoji(<>😫</>);
+    const index = Math.floor(moves / size);
+    const emojis = [
+      <>😆</>,
+      <>😄</>,
+      <>😊</>,
+      <>🙂</>,
+      <>🤨</>,
+      <>😕</>,
+      <>😣</>,
+      <>😖</>,
+      <>😩</>,
+      <>😫</>,
+    ];
+    if (moves % size === 0 && index < emojis.length) {
+      setEmoji(emojis[index]);
     }
   };
 
