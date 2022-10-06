@@ -86,6 +86,7 @@ function App() {
         <span
           className="movesCounter"
           style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
+          key={moves}
         >
           {moves}
         </span>

@@ -12,7 +12,18 @@ h1 {
 }
 
 .movesCounter {
+  display: inline-block;
   font-weight: bold;
+  animation: bounce .1s ease-in-out;
+}
+
+@keyframes bounce {
+  30% {
+    transform: translateY(-4px);
+  }
+  95% {
+    transform: translateY(4px);
+  }
 }
 
 .newGame {
