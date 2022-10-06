@@ -20,7 +20,7 @@ function App() {
   }, [size]);
 
   useEffect(() => {
-    if (checkWin(arrayGrid) && arrayGrid.length) {
+    if (checkWin(arrayGrid)) {
       setWinAlert(true);
     }
   }, [arrayGrid]);
