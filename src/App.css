@@ -5,3 +5,22 @@
 .movesCounter {
   font-weight: bold;
 }
+
+.newGame {
+  --bs-btn-bg: #7367BB;
+  --bs-btn-border-color: #7367BB;
+  --bs-btn-hover-bg: #4839A2;
+  --bs-btn-hover-border-color: #4839A2;
+  --bs-btn-active-bg: #4839A2;
+  --bs-btn-active-border-color: #4839A2;
+  transition: transform, .25s;
+}
+
+.newGame:hover {
+  box-shadow: 0 2px 4px #777;
+  transform: translateY(-2px);
+}
+
+.newGame:active {
+  transform: translateY(1px);
+}

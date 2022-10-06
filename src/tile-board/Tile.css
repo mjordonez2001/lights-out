@@ -9,14 +9,8 @@
 .tile-on {
   --bs-btn-bg: #E6E6E6;
   --bs-btn-border-color: #E6E6E6;
-}
-
-.tile-on:hover {
   --bs-btn-hover-bg: #D3D3D3;
   --bs-btn-hover-border-color: #D3D3D3;
-}
-
-.tile-on:active {
   --bs-btn-active-bg: #7367BB;
   --bs-btn-active-border-color: #7367BB;
 }
@@ -24,14 +18,8 @@
 .tile-off {
   --bs-btn-bg: #7367BB;
   --bs-btn-border-color: #7367BB;
-}
-
-.tile-off:hover {
   --bs-btn-hover-bg: #4839A2;
   --bs-btn-hover-border-color: #4839A2;
-}
-
-.tile-off:active {
   --bs-btn-active-bg: #E6E6E6;
   --bs-btn-active-border-color: #E6E6E6;
 }
