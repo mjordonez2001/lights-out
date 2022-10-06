@@ -2,10 +2,9 @@
   width: 42px;
   height: 42px;
   margin: 1.5px;
-  opacity: 0;
   transition-duration: .25s;
   transition-property: transform, var(--bs-btn-hover-bg);
-  animation: tileStart .6s cubic-bezier(0.42, 0, 0.45, 1.57) forwards;
+  animation: tileStart .6s cubic-bezier(0.42, 0, 0.45, 1.57) backwards;
 }
 
 .tile-on {
@@ -37,10 +36,11 @@
 
 @keyframes tileStart {
   0% {
-    transform: rotate(-15deg);
+    opacity: 0;
+    transform: rotate(-15deg) translateY(-15px);
   }
   100% {
     opacity: 1;
-    transform: translateY(15px);
+    transform: none;
   }
 }
