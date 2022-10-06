@@ -33,7 +33,6 @@ function App() {
 
   const onSizeChange = ({ target }) => {
     setSize(Number(target.value));
-    setArrayGrid([]);
   };
 
   const onToggle = (y, x) => {
@@ -66,7 +65,7 @@ function App() {
         <span
           className="movesCounter"
           style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
-          key={`move-counter: ${moves}`}
+          key={`moves: ${moves}`}
         >
           {moves}
         </span>
@@ -76,7 +75,11 @@ function App() {
         </span>
       </div>
 
-      <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />
+      <TileBoard
+        arrayGrid={arrayGrid}
+        onToggle={onToggle}
+        key={`size: ${size}`}
+      />
 
       <div className="d-flex justify-content-center mt-5 mb-3">
         <button className="btn btn-primary newGame mx-2" onClick={onRestart}>
