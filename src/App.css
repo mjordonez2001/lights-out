@@ -31,6 +31,20 @@ h1 {
   }
 }
 
+.options {
+  animation: fadeIn .5s cubic-bezier(0.42, 0, 0.44, 1.55) backwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .newGame {
   --bs-btn-bg: #7367BB;
   --bs-btn-border-color: #7367BB;

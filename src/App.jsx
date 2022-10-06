@@ -65,7 +65,7 @@ function App() {
         <span
           className="movesCounter"
           style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
-          key={`moves: ${moves}`}
+          key={`movesCounter: ${moves}`}
         >
           {moves}
         </span>
@@ -78,10 +78,14 @@ function App() {
       <TileBoard
         arrayGrid={arrayGrid}
         onToggle={onToggle}
-        key={`size: ${size}`}
+        key={`tileboard: ${size}`}
       />
 
-      <div className="d-flex justify-content-center mt-5 mb-3">
+      <div
+        className="d-flex justify-content-center mt-5 mb-3 options"
+        style={{ animationDelay: `${size ** 2 + 4}00ms` }}
+        key={`options: ${size}`}
+      >
         <button className="btn btn-primary newGame mx-2" onClick={onRestart}>
           New game
         </button>
@@ -90,6 +94,7 @@ function App() {
             className="form-select"
             aria-label="Size"
             onChange={onSizeChange}
+            defaultValue={`${size}`}
           >
             <option value="5">5x5</option>
             <option value="6">6x6</option>
