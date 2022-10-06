@@ -90,7 +90,7 @@ function App() {
           {moves}
         </span>
         &nbsp;moves
-        <span className="mx-1">{emoji}</span>
+        <span className="mx-2">{emoji}</span>
       </div>
 
       <TileBoard arrayGrid={arrayGrid} onToggle={onToggle} />

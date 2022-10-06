@@ -1,3 +1,12 @@
+.container {
+  color: #271973;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-weight: bolder;
+}
+
 .form-select {
   width: auto;
 }
@@ -13,7 +22,7 @@
   --bs-btn-hover-border-color: #4839A2;
   --bs-btn-active-bg: #4839A2;
   --bs-btn-active-border-color: #4839A2;
-  transition: transform, .25s;
+  transition: transform .25s;
 }
 
 .newGame:hover {
