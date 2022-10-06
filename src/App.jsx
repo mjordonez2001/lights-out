@@ -4,20 +4,19 @@ import { randomArrayGrid, checkWin, toggle } from "./utils/utils";
 import "./App.css";
 
 const emojis = ["😆", "😄", "😊", "🙂", "🤨", "😕", "😣", "😖", "😩", "😫"];
+const rgbStart = [0, 185, 70];
+const rgbEnd = [180, 5, 10];
 
 function App() {
   const [size, setSize] = useState(5);
   const [arrayGrid, setArrayGrid] = useState(() => randomArrayGrid(size));
   const [moves, setMoves] = useState(0);
   const [winAlert, setWinAlert] = useState(false);
-  const [rgb, setRgb] = useState([0, 185, 70]);
 
   useEffect(() => {
     setArrayGrid(randomArrayGrid(size));
     setMoves(0);
     setWinAlert(false);
-
-    setRgb([0, 185, 70]);
   }, [size]);
 
   useEffect(() => {
@@ -30,8 +29,6 @@ function App() {
     setArrayGrid(randomArrayGrid(size));
     setMoves(0);
     setWinAlert(false);
-
-    setRgb([0, 185, 70]);
   };
 
   const onSizeChange = ({ target }) => {
@@ -42,15 +39,16 @@ function App() {
   const onToggle = (y, x) => {
     setArrayGrid(toggle(arrayGrid, y, x, size));
     setMoves((currentMoves) => currentMoves + 1);
-
-    if (rgb[1] > 5) {
-      const tempRgb = [...rgb];
-      tempRgb[0] += 3;
-      tempRgb[1] -= 3;
-      tempRgb[2] -= 1;
-      setRgb([...tempRgb]);
-    }
   };
+
+  let rgb = [...rgbStart];
+  if (moves <= 60) {
+    rgb[0] += 3 * moves;
+    rgb[1] -= 3 * moves;
+    rgb[2] -= moves;
+  } else {
+    rgb = [...rgbEnd];
+  }
 
   const emojiIndex = Math.floor(moves / size);
 
