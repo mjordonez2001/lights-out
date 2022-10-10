@@ -15,7 +15,7 @@ function Tile({ isOn, id, onToggle, delay }) {
       id={id}
       onClick={onToggle}
       aria-label={`Tile ${id}`}
-      style={{ animationDelay: `${delay}00ms` }}
+      style={{ animationDelay: `${delay}ms` }}
     />
   );
 }

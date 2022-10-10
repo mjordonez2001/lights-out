@@ -83,7 +83,7 @@ function App() {
 
       <div
         className="d-flex justify-content-center mt-5 mb-3 options"
-        style={{ animationDelay: `${size ** 2 + 4}00ms` }}
+        style={{ animationDelay: `${(size ** 2 + 4) * 100}ms` }}
         key={`options: ${size}`}
       >
         <button className="btn btn-primary newGame mx-2" onClick={onRestart}>
