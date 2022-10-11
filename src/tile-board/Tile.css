@@ -4,7 +4,7 @@
   margin: 1.5px;
   transition-duration: .25s;
   transition-property: transform, var(--bs-btn-hover-bg);
-  animation: tileStart .6s cubic-bezier(0.42, 0, 0.45, 1.57) backwards;
+  animation: tileStart .6s var(--bounce) backwards;
 }
 
 .tile-on {
