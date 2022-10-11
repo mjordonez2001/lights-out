@@ -63,14 +63,14 @@ function App() {
 
       <div className="mt-3">
         <span
-          className="movesCounter"
+          className="moves-counter"
           style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
-          key={`movesCounter: ${moves}`}
+          key={`moves-counter-${moves}`}
         >
           {moves}
         </span>
         &nbsp;moves
-        <span className="mx-2 emoji" key={`emoji: ${emojiIndex}`}>
+        <span className="mx-2 emoji" key={`emoji-${emojiIndex}`}>
           {emojiIndex < emojis.length ? emojis[emojiIndex] : "😫"}
         </span>
       </div>
@@ -78,15 +78,15 @@ function App() {
       <TileBoard
         arrayGrid={arrayGrid}
         onToggle={onToggle}
-        key={`tileboard: ${size}`}
+        key={`tileboard-${size}`}
       />
 
       <div
         className="d-flex justify-content-center mt-5 mb-3 options"
         style={{ animationDelay: `${(size ** 2 + 4) * 100}ms` }}
-        key={`options: ${size}`}
+        key={`options-${size}`}
       >
-        <button className="btn btn-primary newGame mx-2" onClick={onRestart}>
+        <button className="btn btn-primary new-game mx-2" onClick={onRestart}>
           New game
         </button>
         <div>

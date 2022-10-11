@@ -11,7 +11,7 @@ h1 {
   width: auto;
 }
 
-.movesCounter {
+.moves-counter {
   display: inline-block;
   font-weight: bold;
   animation: bounce .1s ease-in-out;
@@ -45,7 +45,7 @@ h1 {
   }
 }
 
-.newGame {
+.new-game {
   --bs-btn-bg: #7367BB;
   --bs-btn-border-color: #7367BB;
   --bs-btn-hover-bg: #4839A2;
@@ -55,11 +55,11 @@ h1 {
   transition: transform .25s;
 }
 
-.newGame:hover {
+.new-game:hover {
   box-shadow: 0 2px 4px #777;
   transform: translateY(-2px);
 }
 
-.newGame:active {
+.new-game:active {
   transform: translateY(1px);
 }

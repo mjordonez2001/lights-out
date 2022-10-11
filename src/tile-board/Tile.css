@@ -25,7 +25,7 @@
   --bs-btn-active-border-color: #E6E6E6;
 }
 
-.tile-off:hover, .tile-on:hover {
+.tile-off:hover, .tile-on:hover, .tile-on:focus, .tile-off:focus {
   box-shadow: 0 2px 4px #777;
   transform: translateY(-2px);
 }
