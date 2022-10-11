@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import TileBoard from "./tile-board/Tileboard";
-import { randomArrayGrid, checkWin, toggle } from "./utils/utils";
+import { randomArrayGrid, checkWin, toggle, lerp } from "./utils/utils";
 import "./App.css";
 
 const emojis = ["😆", "😄", "😊", "🙂", "🤨", "😕", "😣", "😖", "😩", "😫"];
-const rgbStart = [0, 185, 70];
-const rgbEnd = [180, 5, 10];
 
 function App() {
   const [size, setSize] = useState(5);
@@ -40,16 +38,7 @@ function App() {
     setMoves((currentMoves) => currentMoves + 1);
   };
 
-  let rgb = [...rgbStart];
-  if (moves <= 60) {
-    rgb[0] += 3 * moves;
-    rgb[1] -= 3 * moves;
-    rgb[2] -= moves;
-  } else {
-    rgb = [...rgbEnd];
-  }
-
-  const emojiIndex = Math.floor(moves / size);
+  const index = Math.floor(moves / size);
 
   return (
     <div className="container text-center mt-3">
@@ -64,14 +53,19 @@ function App() {
       <div className="mt-3">
         <span
           className="moves-counter"
-          style={{ color: `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})` }}
+          style={{
+            color: `rgb(
+              ${lerp(0, 180, index * 0.1)},
+              ${lerp(185, 5, index * 0.1)},
+              ${lerp(70, 10, index * 0.1)})`,
+          }}
           key={`moves-counter-${moves}`}
         >
           {moves}
         </span>
         &nbsp;moves
-        <span className="mx-2 emoji" key={`emoji-${emojiIndex}`}>
-          {emojiIndex < emojis.length ? emojis[emojiIndex] : "😫"}
+        <span className="mx-2 emoji" key={`emoji-${index}`}>
+          {index < emojis.length ? emojis[index] : "😫"}
         </span>
       </div>
 
