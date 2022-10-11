@@ -1,3 +1,65 @@
+.container {
+  color: #271973;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  font-weight: bolder;
+}
+
 .form-select {
   width: auto;
+}
+
+.moves-counter {
+  display: inline-block;
+  font-weight: bold;
+  animation: bounce .1s ease-in-out;
+}
+
+.emoji {
+  display: inline-block;
+  animation: bounce .1s ease-in-out;
+}
+
+@keyframes bounce {
+  30% {
+    transform: translateY(-4px);
+  }
+  95% {
+    transform: translateY(4px);
+  }
+}
+
+.options {
+  animation: fadeIn .5s var(--bounce) backwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.new-game {
+  --bs-btn-bg: #7367BB;
+  --bs-btn-border-color: #7367BB;
+  --bs-btn-hover-bg: #4839A2;
+  --bs-btn-hover-border-color: #4839A2;
+  --bs-btn-active-bg: #4839A2;
+  --bs-btn-active-border-color: #4839A2;
+  transition: transform .25s;
+}
+
+.new-game:hover {
+  box-shadow: 0 2px 4px #777;
+  transform: translateY(-2px);
+}
+
+.new-game:active {
+  transform: translateY(1px);
 }

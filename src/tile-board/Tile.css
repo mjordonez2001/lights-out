@@ -1,12 +1,46 @@
 .tile {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
+  margin: 1.5px;
+  transition-duration: .25s;
+  transition-property: transform, var(--bs-btn-hover-bg);
+  animation: tileStart .6s var(--bounce) backwards;
 }
 
 .tile-on {
-  --bs-btn-hover-bg: #fff;
+  --bs-btn-bg: #E6E6E6;
+  --bs-btn-border-color: #E6E6E6;
+  --bs-btn-hover-bg: #D3D3D3;
+  --bs-btn-hover-border-color: #D3D3D3;
+  --bs-btn-active-bg: #7367BB;
+  --bs-btn-active-border-color: #7367BB;
 }
 
 .tile-off {
-  --bs-btn-hover-bg: #212529;
+  --bs-btn-bg: #7367BB;
+  --bs-btn-border-color: #7367BB;
+  --bs-btn-hover-bg: #4839A2;
+  --bs-btn-hover-border-color: #4839A2;
+  --bs-btn-active-bg: #E6E6E6;
+  --bs-btn-active-border-color: #E6E6E6;
+}
+
+.tile-off:hover, .tile-on:hover, .tile-on:focus, .tile-off:focus {
+  box-shadow: 0 2px 4px #777;
+  transform: translateY(-2px);
+}
+
+.tile-on:active, .tile-off:active {
+  transform: translateY(1px);
+}
+
+@keyframes tileStart {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg) translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

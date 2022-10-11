@@ -13,6 +13,7 @@ function TileBoard({ arrayGrid, onToggle }) {
                 <Tile
                   key={`${y}, ${x}`}
                   id={`${y}, ${x}`}
+                  delay={(y * arrayGrid.length + x) * 100}
                   isOn={tile}
                   onToggle={() => onToggle(y, x)}
                 />

@@ -84,3 +84,13 @@ export function checkWin(arrayGrid) {
 
   return true;
 }
+
+/**
+ * Linear interpolation
+ */
+export function lerp(start, end, t) {
+  if (t > 1) {
+    return end;
+  }
+  return (1 - t) * start + t * end;
+}
